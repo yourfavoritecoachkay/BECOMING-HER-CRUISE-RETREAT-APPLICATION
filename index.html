@@ -3,1079 +3,1583 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply — B.E.C.O.M.I.N.G. H.E.R. Retreat</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<title>B.E.C.O.M.I.N.G. H.E.R. · Retreat Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --purple:      #3D1A78;
-    --purple-deep: #2A0F5A;
-    --purple-mid:  #5B2D9E;
-    --gold:        #C4922A;
-    --gold-light:  #E8C06A;
-    --gold-pale:   #FDF6E3;
-    --cream:       #FAF7F2;
-    --soft-purple: #EDE7F6;
-    --white:       #FFFFFF;
-    --mid:         #4A4A6A;
-    --light:       #9090B0;
-    --border:      rgba(61,26,120,0.12);
-    --gold-border: rgba(196,146,42,0.3);
+    --ink:    #1A0E35;
+    --plum:   #2E1065;
+    --violet: #4C1D95;
+    --grape:  #6D28D9;
+    --gold:   #B8882A;
+    --honey:  #D4A850;
+    --cream:  #FAF6EF;
+    --parchment: #F3EDE0;
+    --mist:   #EDE8F7;
+    --border: #D5C9E8;
+    --text:   #2D1F52;
+    --soft:   #6B5B8A;
+    --white:  #FFFFFF;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
 
   body {
+    font-family: 'Jost', sans-serif;
     background: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    color: var(--mid);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
     min-height: 100vh;
   }
 
-  /* ── HERO HEADER ─────────────────────────── */
+  /* ── DECORATIVE HEADER ── */
   .hero {
-    background: linear-gradient(150deg, #0A0118 0%, #2A0F5A 55%, #180830 100%);
-    padding: 64px 40px 56px;
-    text-align: center;
+    background: var(--ink);
     position: relative;
     overflow: hidden;
+    padding: 72px 40px 80px;
+    text-align: center;
   }
+
   .hero::before {
     content: '';
-    position: absolute; inset: 0; pointer-events: none;
+    position: absolute;
+    inset: 0;
     background:
-      radial-gradient(ellipse 65% 50% at 25% 70%, rgba(196,146,42,0.10) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 60% at 78% 25%, rgba(93,45,158,0.28) 0%, transparent 60%);
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(109,40,217,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(184,136,42,0.2) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 80% at 50% 50%, rgba(46,16,101,0.6) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .hero-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
-  .hero-eyebrow {
-    font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
-    color: var(--gold-light); font-weight: 500; margin-bottom: 22px; opacity: .85;
+
+  .hero-ornament {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,168,80,0.12);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
   }
-  .hero-title {
+  .hero-ornament:nth-child(2) { width: 600px; height: 600px; border-color: rgba(212,168,80,0.07); }
+  .hero-ornament:nth-child(3) { width: 280px; height: 280px; border-color: rgba(212,168,80,0.18); }
+
+  .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+  .brand-tag {
+    display: inline-block;
+    letter-spacing: 0.22em;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--honey);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 9vw, 88px);
-    font-weight: 700; color: #fff; line-height: .88;
-    letter-spacing: -1.5px; margin-bottom: 6px;
+    font-weight: 300;
+    font-size: clamp(34px, 6vw, 56px);
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
   }
-  .hero-title .her { color: var(--gold-light); display: block; }
-  .hero-rule { width: 44px; height: 2px; background: var(--gold); margin: 20px auto; }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--honey);
+  }
+
   .hero-sub {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(15px, 2.2vw, 19px);
-    font-style: italic; color: rgba(255,255,255,0.62);
-    line-height: 1.55; margin-bottom: 28px;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
   }
-  .hero-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .hero-tag {
-    padding: 6px 16px; font-size: 10px; letter-spacing: 2px;
-    text-transform: uppercase; font-weight: 600; border-radius: 2px;
-  }
-  .hero-tag.p { background: rgba(93,45,158,0.5); color: var(--gold-light); border: 1px solid rgba(196,146,42,0.25); }
-  .hero-tag.g { background: var(--gold); color: #fff; }
 
-  /* ── PROGRESS ────────────────────────────── */
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+  .hero-divider span { width: 60px; height: 1px; background: rgba(212,168,80,0.4); }
+  .hero-divider i { color: var(--honey); font-size: 14px; font-style: normal; }
+
+  .hero-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.85;
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  .hero-note {
+    display: inline-block;
+    background: rgba(212,168,80,0.12);
+    border: 1px solid rgba(212,168,80,0.3);
+    border-radius: 4px;
+    padding: 14px 28px;
+    font-size: 12.5px;
+    color: var(--honey);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── PROGRESS BAR ── */
   .progress-wrap {
-    background: var(--purple-deep);
-    padding: 0 40px;
-    border-bottom: 1px solid rgba(196,146,42,0.2);
+    background: var(--ink);
+    padding: 0 40px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(212,168,80,0.15);
   }
-  .progress-inner {
-    max-width: 680px; margin: 0 auto;
-    display: flex; align-items: center; gap: 0;
-  }
-  .prog-step {
-    flex: 1; padding: 14px 0; text-align: center;
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    font-weight: 600; color: rgba(255,255,255,0.3);
-    border-bottom: 2px solid transparent;
-    transition: all .3s;
-    cursor: default;
-  }
-  .prog-step.active { color: var(--gold-light); border-bottom-color: var(--gold); }
-  .prog-step.done   { color: rgba(255,255,255,0.55); border-bottom-color: rgba(196,146,42,0.3); }
 
-  /* ── FORM WRAPPER ────────────────────────── */
+  .progress-track {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .progress-steps {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .progress-steps .step {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    transition: background 0.4s;
+  }
+  .progress-steps .step.active { background: var(--honey); }
+
+  .progress-label {
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+  }
+  .progress-label span { color: var(--honey); }
+
+  /* ── MAIN WRAPPER ── */
   .form-wrap {
-    max-width: 680px; margin: 0 auto;
-    padding: 56px 40px 80px;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
   }
 
-  /* ── STEPS ───────────────────────────────── */
-  .step { display: none; animation: fadeIn .35s ease; }
-  .step.active { display: block; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-
-  .step-header { margin-bottom: 36px; }
-  .step-num {
-    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    font-weight: 600; color: var(--gold); margin-bottom: 8px;
+  /* ── SECTION ── */
+  .section {
+    display: none;
+    animation: fadeIn 0.5s ease;
   }
-  .step-title {
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    margin-bottom: 44px;
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--honey);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-header h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 700; color: var(--purple);
-    line-height: 1.1; margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--plum);
+    line-height: 1.2;
+    margin-bottom: 14px;
   }
-  .step-desc { font-size: 15px; color: var(--light); line-height: 1.7; }
 
-  /* ── FIELD ───────────────────────────────── */
-  .field { margin-bottom: 24px; }
-  .field label {
-    display: block; font-size: 12px; font-weight: 600;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--purple); margin-bottom: 8px;
+  .section-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16.5px;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.75;
   }
-  .field .req { color: var(--gold); margin-left: 2px; }
-  .field input,
-  .field select,
-  .field textarea {
+
+  .section-divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--honey));
+    margin: 18px 0;
+    border-radius: 2px;
+  }
+
+  /* ── QUESTION GROUPS ── */
+  .q-group {
+    margin-bottom: 36px;
+  }
+
+  .q-group + .q-group {
+    padding-top: 8px;
+  }
+
+  label, .q-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 7px;
+  }
+
+  .q-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--soft);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="url"],
+  select,
+  textarea {
     width: 100%;
-    padding: 14px 18px;
-    border: 1.5px solid var(--border);
-    border-radius: 3px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 300;
-    color: var(--purple-deep);
     background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 13px 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14.5px;
+    color: var(--text);
+    transition: border-color 0.25s, box-shadow 0.25s;
     outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    -webkit-appearance: none;
+    appearance: none;
   }
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(196,146,42,0.1);
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--grape);
+    box-shadow: 0 0 0 3px rgba(109,40,217,0.09);
   }
-  .field input::placeholder,
-  .field textarea::placeholder { color: var(--light); font-style: italic; }
-  .field textarea { resize: vertical; min-height: 110px; line-height: 1.65; }
-  .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4922A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
-  .field .hint { font-size: 12px; color: var(--light); margin-top: 6px; font-style: italic; }
 
-  /* TWO COL */
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.65;
+  }
 
-  /* RADIO / CHECK CARDS */
-  .card-options { display: flex; flex-direction: column; gap: 10px; }
-  .card-option { position: relative; }
-  .card-option input[type="radio"],
-  .card-option input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
-  .card-option label {
-    display: flex; align-items: flex-start; gap: 14px;
-    padding: 16px 18px;
-    border: 1.5px solid var(--border);
-    border-radius: 3px;
-    background: var(--white);
+  textarea.tall { min-height: 150px; }
+  textarea.grande { min-height: 190px; }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236D28D9' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 42px;
     cursor: pointer;
-    transition: all .2s;
-    text-transform: none; letter-spacing: 0;
-    font-size: 14px; font-weight: 400; color: var(--mid);
-  }
-  .card-option label:hover { border-color: var(--gold-border); background: var(--gold-pale); }
-  .card-option input:checked + label {
-    border-color: var(--gold);
-    background: var(--gold-pale);
-    box-shadow: 0 0 0 3px rgba(196,146,42,0.1);
-  }
-  .card-dot {
-    width: 18px; height: 18px; min-width: 18px;
-    border: 2px solid var(--border); border-radius: 50%;
-    margin-top: 1px; transition: all .2s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .card-option input:checked + label .card-dot {
-    border-color: var(--gold); background: var(--gold);
-  }
-  .card-dot::after {
-    content: ''; width: 6px; height: 6px;
-    background: #fff; border-radius: 50%; opacity: 0; transition: opacity .2s;
-  }
-  .card-option input:checked + label .card-dot::after { opacity: 1; }
-  .card-check {
-    width: 18px; height: 18px; min-width: 18px;
-    border: 2px solid var(--border); border-radius: 2px;
-    margin-top: 1px; transition: all .2s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .card-option input[type="checkbox"]:checked + label .card-check {
-    border-color: var(--gold); background: var(--gold);
-  }
-  .card-check::after {
-    content: '✓'; color: #fff; font-size: 11px; font-weight: 700; opacity: 0; transition: opacity .2s;
-  }
-  .card-option input[type="checkbox"]:checked + label .card-check::after { opacity: 1; }
-  .card-label-title { font-weight: 600; color: var(--purple); font-size: 14px; margin-bottom: 2px; }
-  .card-label-desc  { font-size: 12.5px; color: var(--light); line-height: 1.5; }
-
-  /* TIER CARDS */
-  .tier-options { display: flex; flex-direction: column; gap: 10px; }
-  .tier-card { position: relative; }
-  .tier-card input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
-  .tier-card label {
-    display: grid; grid-template-columns: 20px 1fr auto;
-    gap: 14px; align-items: center;
-    padding: 18px 20px;
-    border: 1.5px solid var(--border);
-    border-radius: 3px; background: var(--white);
-    cursor: pointer; transition: all .2s;
-    text-transform: none; letter-spacing: 0; font-weight: 400;
-  }
-  .tier-card label:hover { border-color: var(--gold-border); background: var(--gold-pale); }
-  .tier-card input:checked + label { border-color: var(--gold); background: var(--gold-pale); box-shadow: 0 0 0 3px rgba(196,146,42,0.1); }
-  .tier-card .tc-dot {
-    width: 18px; height: 18px; min-width: 18px;
-    border: 2px solid var(--border); border-radius: 50%;
-    transition: all .2s; display: flex; align-items: center; justify-content: center;
-  }
-  .tier-card input:checked + label .tc-dot { border-color: var(--gold); background: var(--gold); }
-  .tier-card .tc-dot::after { content:''; width:6px; height:6px; background:#fff; border-radius:50%; opacity:0; transition:opacity .2s; }
-  .tier-card input:checked + label .tc-dot::after { opacity: 1; }
-  .tc-info .tc-name { font-weight: 600; font-size: 14px; color: var(--purple); margin-bottom: 2px; }
-  .tc-info .tc-desc { font-size: 12px; color: var(--light); }
-  .tc-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 700; color: var(--gold);
-    white-space: nowrap;
   }
 
-  /* SCALE */
-  .scale-wrap { display: flex; flex-direction: column; gap: 4px; }
-  .scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--light); margin-bottom: 4px; }
-  .scale-options { display: flex; gap: 6px; }
-  .scale-opt { position: relative; flex: 1; }
-  .scale-opt input { position: absolute; opacity: 0; width:0; height:0; }
-  .scale-opt label {
-    display: flex; align-items: center; justify-content: center;
-    height: 44px; border: 1.5px solid var(--border);
-    border-radius: 3px; background: var(--white);
-    font-size: 14px; font-weight: 600; color: var(--light);
-    cursor: pointer; transition: all .2s;
-    text-transform: none; letter-spacing: 0;
-  }
-  .scale-opt label:hover { border-color: var(--gold-border); color: var(--gold); }
-  .scale-opt input:checked + label { border-color: var(--gold); background: var(--gold); color: #fff; }
-
-  /* DIVIDER */
-  .form-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
-
-  /* NAVIGATION BUTTONS */
-  .form-nav { display: flex; gap: 12px; margin-top: 36px; align-items: center; }
-  .btn-next, .btn-submit {
-    flex: 1; padding: 16px 32px;
-    background: var(--purple);
-    color: #fff; border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase;
-    cursor: pointer; border-radius: 3px;
-    transition: background .2s, transform .1s;
-  }
-  .btn-next:hover, .btn-submit:hover { background: var(--purple-mid); }
-  .btn-next:active, .btn-submit:active { transform: scale(.99); }
-  .btn-submit { background: var(--gold); }
-  .btn-submit:hover { background: #b08020; }
-  .btn-back {
-    padding: 16px 24px;
-    background: transparent;
-    color: var(--light); border: 1.5px solid var(--border);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    cursor: pointer; border-radius: 3px;
-    transition: all .2s;
-  }
-  .btn-back:hover { border-color: var(--gold-border); color: var(--purple); }
-
-  /* ERROR */
-  .error-msg { color: #C0392B; font-size: 12px; margin-top: 5px; display: none; }
-  .field.has-error input,
-  .field.has-error select,
-  .field.has-error textarea { border-color: #C0392B; }
-  .field.has-error .error-msg { display: block; }
-
-  /* ── CONFIRMATION SCREEN ─────────────────── */
-  #confirm { display: none; }
-  #confirm.active { display: block; animation: fadeIn .5s ease; }
-
-  .confirm-hero {
-    background: linear-gradient(150deg, #0A0118, #2A0F5A);
-    padding: 56px 40px;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .confirm-hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,146,42,0.1), transparent);
-    pointer-events: none;
-  }
-  .confirm-icon {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: var(--gold); display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px; position: relative; z-index: 2;
-    font-size: 28px;
-  }
-  .confirm-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 5vw, 44px); font-weight: 700;
-    color: #fff; line-height: 1.1; margin-bottom: 10px;
-    position: relative; z-index: 2;
-  }
-  .confirm-title .name-display { color: var(--gold-light); }
-  .confirm-sub {
-    font-size: 15px; color: rgba(255,255,255,0.62);
-    line-height: 1.7; max-width: 480px; margin: 0 auto;
-    position: relative; z-index: 2;
+  /* ── RADIO + CHECKBOX GROUPS ── */
+  .radio-group, .check-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
   }
 
-  .confirm-body { max-width: 680px; margin: 0 auto; padding: 48px 40px 80px; }
-
-  .confirm-steps { margin: 0 0 40px; }
-  .confirm-step {
-    display: grid; grid-template-columns: 48px 1fr;
-    gap: 16px; margin-bottom: 4px;
-  }
-  .cs-num {
-    width: 48px; height: 48px; border-radius: 3px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 700; color: #fff;
-  }
-  .confirm-step:nth-child(1) .cs-num { background: var(--purple); }
-  .confirm-step:nth-child(2) .cs-num { background: var(--gold); }
-  .confirm-step:nth-child(3) .cs-num { background: var(--purple-mid); }
-  .cs-body { padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .confirm-step:last-child .cs-body { border-bottom: none; }
-  .cs-title { font-weight: 600; font-size: 14px; color: var(--purple); margin-bottom: 3px; }
-  .cs-desc  { font-size: 13.5px; color: var(--light); line-height: 1.6; }
-
-  /* TIER SUMMARY */
-  .tier-summary {
-    border: 1.5px solid var(--gold-border);
-    border-radius: 4px; overflow: hidden; margin: 28px 0;
-  }
-  .ts-head { background: var(--gold); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .ts-head-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.8); font-weight: 600; }
-  .ts-head-name  { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: #fff; }
-  .ts-body { background: var(--gold-pale); padding: 16px 20px; }
-  .ts-price-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .ts-price-label { font-size: 12px; color: var(--mid); }
-  .ts-price-full  { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--gold); }
-  .ts-deposit-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-top: 1px solid var(--gold-border); }
-  .ts-deposit-label { font-size: 12px; font-weight: 600; color: var(--purple); }
-  .ts-deposit-amount { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--purple); }
-
-  /* BOOK CALL CTA */
-  .book-cta {
-    background: var(--purple-deep);
-    padding: 32px 28px; border-radius: 4px;
-    text-align: center; margin: 28px 0;
-    position: relative; overflow: hidden;
-  }
-  .book-cta::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(196,146,42,0.08), transparent);
-    pointer-events: none;
-  }
-  .book-cta-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; opacity: .8; position: relative; z-index: 1; }
-  .book-cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(20px, 3vw, 28px); font-weight: 700;
-    color: #fff; margin-bottom: 10px; line-height: 1.2;
-    position: relative; z-index: 1;
-  }
-  .book-cta-desc { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 22px; line-height: 1.65; position: relative; z-index: 1; }
-  .btn-book {
-    display: inline-block; padding: 16px 40px;
-    background: var(--gold); color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase;
-    text-decoration: none; border-radius: 3px;
-    transition: background .2s;
-    position: relative; z-index: 1;
-    cursor: pointer; border: none;
-  }
-  .btn-book:hover { background: #b08020; }
-
-  .confirm-note {
-    background: var(--soft-purple); border-left: 3px solid var(--purple);
-    padding: 14px 18px; margin: 20px 0; border-radius: 0 3px 3px 0;
-    font-size: 13.5px; color: var(--mid); line-height: 1.65;
+  .radio-group.inline, .check-group.inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
-  /* ── TYPEFORM GUIDE (bottom of page) ────── */
-  .guide-section {
-    border-top: 2px solid var(--purple);
-    padding: 64px 40px 80px;
+  .radio-item, .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .radio-item input, .check-item input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--grape);
+    cursor: pointer;
+  }
+
+  .radio-item span, .check-item span {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .radio-group.inline .radio-item,
+  .check-group.inline .check-item {
     background: var(--white);
-    max-width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 16px;
+    transition: border-color 0.2s, background 0.2s;
   }
-  .guide-inner { max-width: 860px; margin: 0 auto; }
-  .guide-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
-  .guide-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; color: var(--purple); margin-bottom: 10px; line-height: 1.1; }
-  .guide-desc { font-size: 15px; color: var(--light); margin-bottom: 40px; line-height: 1.7; }
 
-  .q-block { margin-bottom: 28px; border: 1px solid #ede9e3; border-radius: 4px; overflow: hidden; }
-  .q-head { display: grid; grid-template-columns: 44px 1fr auto; gap: 0; }
-  .q-num { display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: #fff; padding: 14px 0; }
-  .q-block:nth-child(odd)  .q-num { background: var(--purple); }
-  .q-block:nth-child(even) .q-num { background: var(--gold); }
-  .q-title { padding: 14px 16px; font-weight: 600; font-size: 14px; color: var(--purple); display: flex; align-items: center; }
-  .q-type { padding: 14px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--light); font-weight: 600; display: flex; align-items: center; white-space: nowrap; }
-  .q-body { padding: 12px 16px 16px; background: #fafafa; border-top: 1px solid #ede9e3; }
-  .q-copy { font-size: 13.5px; color: var(--mid); line-height: 1.75; white-space: pre-wrap; }
-  .q-options { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
-  .q-opt { font-size: 13px; color: var(--mid); padding: 4px 0; border-bottom: 1px dashed #eee; }
-  .q-opt:last-child { border-bottom: none; }
-  .q-note { margin-top: 10px; font-size: 12px; font-style: italic; color: var(--light); }
+  .radio-group.inline .radio-item:has(input:checked),
+  .check-group.inline .check-item:has(input:checked) {
+    border-color: var(--grape);
+    background: var(--mist);
+  }
 
-  .guide-section-head { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 26px); font-weight: 600; color: var(--purple); margin: 40px 0 18px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  /* ── SCALE ── */
+  .scale-wrap {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
 
-  /* FOOTER */
-  footer {
-    background: var(--purple); padding: 40px;
+  .scale-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+
+  .scale-item input[type="radio"] {
+    width: 20px; height: 20px;
+    accent-color: var(--grape);
+    cursor: pointer;
+  }
+
+  .scale-item span {
+    font-size: 11.5px;
+    color: var(--soft);
+    font-weight: 500;
+  }
+
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+
+  .scale-labels span {
+    font-size: 11px;
+    color: var(--soft);
+    font-style: italic;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .form-wrap { padding: 40px 20px 80px; }
+    .hero { padding: 50px 20px 60px; }
+    .progress-wrap { padding: 0 20px 20px; }
+  }
+
+  /* ── ACCENT BLOCK ── */
+  .accent-block {
+    background: linear-gradient(135deg, var(--mist) 0%, rgba(237,232,247,0.4) 100%);
+    border-left: 3px solid var(--grape);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--plum);
+    line-height: 1.75;
+  }
+
+  .gold-block {
+    background: linear-gradient(135deg, #FDF6E3 0%, rgba(253,246,227,0.4) 100%);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15.5px;
+    color: #5C3A0A;
+    line-height: 1.75;
+  }
+
+  /* ── SUBSECTION TITLE ── */
+  .subsection {
+    margin: 40px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .subsection h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--plum);
+    letter-spacing: 0.01em;
+  }
+
+  .subsection .sub-note {
+    font-size: 12.5px;
+    color: var(--soft);
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── REQUIRED ── */
+  .req { color: var(--gold); margin-left: 3px; }
+
+  /* ── CHAR COUNTER ── */
+  .char-wrap { position: relative; }
+  .char-count {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-size: 11px;
+    color: var(--soft);
+    pointer-events: none;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    gap: 16px;
+  }
+
+  .btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    padding: 14px 32px;
+  }
+
+  .btn-back {
+    background: transparent;
+    color: var(--soft);
+    border: 1.5px solid var(--border);
+  }
+  .btn-back:hover { border-color: var(--grape); color: var(--grape); }
+
+  .btn-next {
+    background: var(--plum);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(46,16,101,0.25);
+  }
+  .btn-next:hover {
+    background: var(--grape);
+    box-shadow: 0 6px 22px rgba(109,40,217,0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-submit {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--honey) 100%);
+    color: var(--white);
+    box-shadow: 0 4px 18px rgba(184,136,42,0.35);
+    padding: 16px 44px;
+    font-size: 13px;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(184,136,42,0.4);
+  }
+
+  /* ── CONFIRMATION ── */
+  #confirmation {
+    display: none;
+    text-align: center;
+    padding: 80px 40px;
+    animation: fadeIn 0.6s ease;
+  }
+
+  .confirm-seal {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--plum), var(--grape));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 36px;
+    box-shadow: 0 12px 40px rgba(46,16,101,0.25);
+  }
+
+  #confirmation h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--plum);
+    margin-bottom: 10px;
+  }
+
+  #confirmation h2 em { color: var(--gold); font-style: italic; }
+
+  #confirmation .confirm-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--soft);
+    margin-bottom: 30px;
+  }
+
+  #confirmation p {
+    font-size: 14.5px;
+    color: var(--soft);
+    max-width: 460px;
+    margin: 0 auto 14px;
+    line-height: 1.75;
+  }
+
+  /* ── VALIDATION ── */
+  .field-error {
+    font-size: 12px;
+    color: #C0392B;
+    margin-top: 5px;
+    display: none;
+  }
+
+  input.invalid, select.invalid, textarea.invalid {
+    border-color: #C0392B;
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+  }
+
+  .needs-attention {
+    outline: 2px solid #C0392B;
+    outline-offset: 6px;
+    border-radius: 6px;
+    animation: flashBorder 0.4s ease;
+  }
+
+  @keyframes flashBorder {
+    0% { outline-color: transparent; }
+    50% { outline-color: #C0392B; }
+    100% { outline-color: #C0392B; }
+  }
+
+  /* ── ERROR BANNER ── */
+  .error-banner {
+    display: none;
+    background: #FEF2F2;
+    border: 1.5px solid #C0392B;
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin-bottom: 28px;
+    font-size: 13.5px;
+    color: #922B21;
+    font-weight: 500;
     text-align: center;
   }
-  footer .fb { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #fff; font-weight: 700; margin-bottom: 6px; }
-  footer .fs { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--gold-light); margin-bottom: 6px; }
-  footer .ft { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 2px; }
+  .error-banner.visible { display: block; }
 
-  @media(max-width:600px){
-    .field-row { grid-template-columns: 1fr; }
-    .form-wrap, .confirm-body { padding: 40px 20px 60px; }
-    .hero { padding: 48px 20px 40px; }
-    .guide-section { padding: 48px 20px 60px; }
-    .scale-options { gap: 4px; }
-    .prog-step { font-size: 9px; padding: 10px 4px; }
+  .btn-submit.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
   }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
 </style>
 </head>
 <body>
 
 <!-- HERO -->
-<div class="hero">
+<header class="hero">
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Your Favorite Coach Kay · HER Circle</div>
-    <div class="hero-title">B.E.C.O.M.I.N.G.<span class="her">H.E.R.</span></div>
-    <div class="hero-rule"></div>
-    <div class="hero-sub">A 7-Day Women's Empowerment Cruise Retreat · Virgin Voyages</div>
-    <div class="hero-tags">
-      <div class="hero-tag p">Retreat Application</div>
-      <div class="hero-tag g">Limited Spots</div>
-      <div class="hero-tag p">3 Tiers Available</div>
+    <span class="brand-tag">Your Favorite Coach Kay · HER Circle Presents</span>
+    <h1>B.E.C.O.M.I.N.G. <em>H.E.R.</em></h1>
+    <p class="hero-sub">Women's Empowerment Cruise Retreat · Official Application</p>
+    <div class="hero-divider">
+      <span></span><i>✦</i><span></span>
     </div>
+    <p class="hero-message">
+      This application is the beginning of your transformation. It is not a formality. It is an invitation for you to be truly seen, so that every element of this retreat can be designed around the real woman behind the name. Take your time. Answer honestly. This is a safe space, and what you share here is held with care.
+    </p>
+    <div class="hero-note">Estimated completion time: 20 to 25 minutes</div>
   </div>
-</div>
+</header>
 
-<!-- PROGRESS BAR -->
+<!-- PROGRESS -->
 <div class="progress-wrap">
-  <div class="progress-inner">
-    <div class="prog-step active" id="prog-1">About You</div>
-    <div class="prog-step" id="prog-2">Your Journey</div>
-    <div class="prog-step" id="prog-3">The Retreat</div>
-    <div class="prog-step" id="prog-4">Final Steps</div>
+  <div class="progress-track">
+    <div class="progress-steps" id="progressSteps"></div>
+    <div class="progress-label">Section <span id="progressCurrent">1</span> of <span id="progressTotal">8</span> — <span id="progressName">Personal Details</span></div>
   </div>
 </div>
 
-<!-- FORM -->
-<div id="application-form">
-  <div class="form-wrap">
+<!-- FORM WRAP -->
+<div class="form-wrap">
+<form id="mainForm" novalidate>
 
-    <!-- ══ STEP 1 · ABOUT YOU ══════════════════ -->
-    <div class="step active" id="step-1">
-      <div class="step-header">
-        <div class="step-num">Step 1 of 4 · About You</div>
-        <div class="step-title">Let's start with<br>the basics.</div>
-        <div class="step-desc">This helps me understand who you are so our conversation can be as relevant as possible to where you are right now.</div>
+  <!-- ═══════════════════════════════ -->
+  <!-- SECTION 1: PERSONAL DETAILS   -->
+  <!-- ═══════════════════════════════ -->
+  <div class="section active" id="section-1" data-title="Personal Details">
+    <div class="section-header">
+      <span class="section-number">Section 01 of 08</span>
+      <h2>Personal Details</h2>
+      <div class="section-divider"></div>
+      <p>Let's begin with who you are and how to reach you. This information ensures your application is properly reviewed and your retreat experience is personalized from the start.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="q-group">
+        <label for="firstName">First Name <span class="req">*</span></label>
+        <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
       </div>
-
-      <div class="field-row">
-        <div class="field" id="f-firstname">
-          <label>First Name <span class="req">*</span></label>
-          <input type="text" id="firstname" placeholder="Your first name" />
-          <div class="error-msg">Please enter your first name.</div>
-        </div>
-        <div class="field" id="f-lastname">
-          <label>Last Name <span class="req">*</span></label>
-          <input type="text" id="lastname" placeholder="Your last name" />
-          <div class="error-msg">Please enter your last name.</div>
-        </div>
-      </div>
-
-      <div class="field" id="f-email">
-        <label>Email Address <span class="req">*</span></label>
-        <input type="email" id="email" placeholder="your@email.com" />
-        <div class="error-msg">Please enter a valid email address.</div>
-      </div>
-
-      <div class="field" id="f-phone">
-        <label>Phone Number <span class="req">*</span></label>
-        <input type="tel" id="phone" placeholder="+1 (000) 000-0000" />
-        <div class="hint">Include your country code. I'll use this for your follow-up call.</div>
-        <div class="error-msg">Please enter your phone number.</div>
-      </div>
-
-      <div class="field" id="f-city">
-        <label>City & Country <span class="req">*</span></label>
-        <input type="text" id="city" placeholder="e.g. Miami, USA" />
-        <div class="error-msg">Please enter your city and country.</div>
-      </div>
-
-      <div class="field" id="f-age">
-        <label>Age Range <span class="req">*</span></label>
-        <select id="age">
-          <option value="" disabled selected>Select your age range</option>
-          <option>25 to 30</option>
-          <option>31 to 35</option>
-          <option>36 to 40</option>
-          <option>41 to 45</option>
-          <option>46 to 50</option>
-          <option>51 and above</option>
-        </select>
-        <div class="error-msg">Please select your age range.</div>
-      </div>
-
-      <div class="field" id="f-profession">
-        <label>What do you do professionally? <span class="req">*</span></label>
-        <input type="text" id="profession" placeholder="e.g. Healthcare Executive, Business Owner, Attorney..." />
-        <div class="error-msg">Please tell us what you do professionally.</div>
-      </div>
-
-      <div class="field" id="f-relationship">
-        <label>Current Relationship Status <span class="req">*</span></label>
-        <select id="relationship">
-          <option value="" disabled selected>Select your status</option>
-          <option>Single and dating</option>
-          <option>Single and not currently dating</option>
-          <option>In a relationship</option>
-          <option>It's complicated</option>
-          <option>Prefer not to say</option>
-        </select>
-        <div class="error-msg">Please select your relationship status.</div>
-      </div>
-
-      <div class="form-nav">
-        <button class="btn-next" onclick="nextStep(1)">Continue →</button>
+      <div class="q-group">
+        <label for="lastName">Last Name <span class="req">*</span></label>
+        <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
       </div>
     </div>
 
-    <!-- ══ STEP 2 · YOUR JOURNEY ═══════════════ -->
-    <div class="step" id="step-2">
-      <div class="step-header">
-        <div class="step-num">Step 2 of 4 · Your Journey</div>
-        <div class="step-title">Tell me where<br>you really are.</div>
-        <div class="step-desc">This is the most important part of your application. Be honest. There are no wrong answers, and nothing you share here disqualifies you.</div>
-      </div>
+    <div class="q-group">
+      <label for="preferredName">Preferred Name or Nickname</label>
+      <p class="q-hint">What would you like Coach Kay to call you during the retreat?</p>
+      <input type="text" id="preferredName" name="preferredName" placeholder="e.g. Nikki, Bri, Ms. Thompson...">
+    </div>
 
-      <div class="field" id="f-whynow">
-        <label>What is bringing you to this retreat right now? <span class="req">*</span></label>
-        <textarea id="whynow" placeholder="What is happening in your love life or relationship patterns that made you stop and pay attention to B.E.C.O.M.I.N.G. H.E.R.?"></textarea>
-        <div class="hint">There is no word limit. Take as much space as you need.</div>
-        <div class="error-msg">Please share what is bringing you here.</div>
+    <div class="two-col">
+      <div class="q-group">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
       </div>
-
-      <div class="field" id="f-pattern">
-        <label>What pattern keeps showing up in your relationships? <span class="req">*</span></label>
-        <textarea id="pattern" placeholder="Think about the last 2 or 3 relationships or dating experiences. What do they have in common? What keeps repeating?"></textarea>
-        <div class="error-msg">Please describe the pattern you have noticed.</div>
-      </div>
-
-      <div class="field" id="f-tried">
-        <label>What have you already tried to address this? <span class="req">*</span></label>
-        <div class="card-options">
-          <div class="card-option">
-            <input type="checkbox" id="t1" name="tried" value="therapy">
-            <label for="t1"><div class="card-check"></div><div><div class="card-label-title">Therapy or counseling</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="checkbox" id="t2" name="tried" value="coaching">
-            <label for="t2"><div class="card-check"></div><div><div class="card-label-title">Life or relationship coaching</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="checkbox" id="t3" name="tried" value="books">
-            <label for="t3"><div class="card-check"></div><div><div class="card-label-title">Self-help books or courses</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="checkbox" id="t4" name="tried" value="retreats">
-            <label for="t4"><div class="card-check"></div><div><div class="card-label-title">Retreats or workshops</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="checkbox" id="t5" name="tried" value="nothing">
-            <label for="t5"><div class="card-check"></div><div><div class="card-label-title">This would be my first time investing in this area</div></div></label>
-          </div>
-        </div>
-      </div>
-
-      <div class="field" id="f-gap">
-        <label>What do you feel is still missing? <span class="req">*</span></label>
-        <textarea id="gap" placeholder="Even after everything you have tried, what still feels unresolved or unclear?"></textarea>
-        <div class="error-msg">Please share what still feels missing.</div>
-      </div>
-
-      <div class="field">
-        <label>On a scale of 1 to 5, how ready are you to do deep, honest work?</label>
-        <div class="scale-wrap">
-          <div class="scale-labels"><span>Not quite ready</span><span>Completely ready</span></div>
-          <div class="scale-options">
-            <div class="scale-opt"><input type="radio" name="readiness" id="r1" value="1"><label for="r1">1</label></div>
-            <div class="scale-opt"><input type="radio" name="readiness" id="r2" value="2"><label for="r2">2</label></div>
-            <div class="scale-opt"><input type="radio" name="readiness" id="r3" value="3"><label for="r3">3</label></div>
-            <div class="scale-opt"><input type="radio" name="readiness" id="r4" value="4"><label for="r4">4</label></div>
-            <div class="scale-opt"><input type="radio" name="readiness" id="r5" value="5"><label for="r5">5</label></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-nav">
-        <button class="btn-back" onclick="prevStep(2)">← Back</button>
-        <button class="btn-next" onclick="nextStep(2)">Continue →</button>
+      <div class="q-group">
+        <label for="phone">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 (___) ___-____" required>
       </div>
     </div>
 
-    <!-- ══ STEP 3 · THE RETREAT ════════════════ -->
-    <div class="step" id="step-3">
-      <div class="step-header">
-        <div class="step-num">Step 3 of 4 · The Retreat</div>
-        <div class="step-title">Let's talk about<br>the experience.</div>
-        <div class="step-desc">This helps me match you with the right tier and prepare our follow-up conversation to be as useful as possible for you.</div>
+    <div class="two-col">
+      <div class="q-group">
+        <label for="city">City <span class="req">*</span></label>
+        <input type="text" id="city" name="city" placeholder="City" required>
       </div>
-
-      <div class="field" id="f-tier">
-        <label>Which tier feels most aligned for you? <span class="req">*</span></label>
-        <div class="tier-options">
-          <div class="tier-card">
-            <input type="radio" name="tier" id="tier1" value="Foundation">
-            <label for="tier1">
-              <div class="tc-dot"></div>
-              <div class="tc-info">
-                <div class="tc-name">Foundation Experience</div>
-                <div class="tc-desc">Full retreat, all group workshops, small group circles, 90-day action plan, 3-month HER Circle</div>
-              </div>
-              <div class="tc-price">$5,500</div>
-            </label>
-          </div>
-          <div class="tier-card">
-            <input type="radio" name="tier" id="tier2" value="VIP">
-            <label for="tier2">
-              <div class="tc-dot"></div>
-              <div class="tc-info">
-                <div class="tc-name">VIP Experience</div>
-                <div class="tc-desc">Foundation + balcony cabin, 1 private session with Coach Kay, VIP dinner, 6-month HER Circle</div>
-              </div>
-              <div class="tc-price">$7,500</div>
-            </label>
-          </div>
-          <div class="tier-card">
-            <input type="radio" name="tier" id="tier3" value="Concierge">
-            <label for="tier3">
-              <div class="tc-dot"></div>
-              <div class="tc-info">
-                <div class="tc-name">Concierge Experience</div>
-                <div class="tc-desc">VIP + premium suite, 3 private sessions, custom 90-day plan, 12-month HER Circle, full concierge support</div>
-              </div>
-              <div class="tc-price">$9,500</div>
-            </label>
-          </div>
-        </div>
-        <div class="hint">Not sure yet? Select the one that feels closest and we will talk it through on the call.</div>
-        <div class="error-msg">Please select your preferred tier.</div>
-      </div>
-
-      <div class="field" id="f-investment">
-        <label>How do you feel about the investment? <span class="req">*</span></label>
-        <div class="card-options">
-          <div class="card-option">
-            <input type="radio" id="inv1" name="investment" value="ready">
-            <label for="inv1"><div class="card-dot"></div><div><div class="card-label-title">I am ready and the investment feels aligned</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="inv2" name="investment" value="payment-plan">
-            <label for="inv2"><div class="card-dot"></div><div><div class="card-label-title">I am interested and would like to discuss a payment plan</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="inv3" name="investment" value="questions">
-            <label for="inv3"><div class="card-dot"></div><div><div class="card-label-title">I have some questions before I commit</div></div></label>
-          </div>
-        </div>
-        <div class="error-msg">Please share how you feel about the investment.</div>
-      </div>
-
-      <div class="field" id="f-travel">
-        <label>Have you been on a cruise before?</label>
-        <div class="card-options">
-          <div class="card-option">
-            <input type="radio" id="tr1" name="travel" value="yes-multiple">
-            <label for="tr1"><div class="card-dot"></div><div><div class="card-label-title">Yes, multiple times</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="tr2" name="travel" value="yes-once">
-            <label for="tr2"><div class="card-dot"></div><div><div class="card-label-title">Yes, once</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="tr3" name="travel" value="no">
-            <label for="tr3"><div class="card-dot"></div><div><div class="card-label-title">No, this would be my first time</div></div></label>
-          </div>
-        </div>
-      </div>
-
-      <div class="field" id="f-concerns">
-        <label>Is there anything that might prevent you from attending?</label>
-        <textarea id="concerns" placeholder="e.g. passport, scheduling, travel logistics, health considerations... Let me know so we can work through it together."></textarea>
-        <div class="hint">Nothing here will disqualify you. I want to make sure we can address any real barriers.</div>
-      </div>
-
-      <div class="field" id="f-heardabout">
-        <label>How did you hear about B.E.C.O.M.I.N.G. H.E.R.?</label>
-        <select id="heardabout">
-          <option value="" disabled selected>Select one</option>
-          <option>TikTok</option>
-          <option>Instagram</option>
-          <option>Podcast — Love Beyond the Surface</option>
-          <option>A friend or referral</option>
-          <option>Eventbrite</option>
-          <option>Google or web search</option>
-          <option>HER Circle community</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="form-nav">
-        <button class="btn-back" onclick="prevStep(3)">← Back</button>
-        <button class="btn-next" onclick="nextStep(3)">Continue →</button>
+      <div class="q-group">
+        <label for="country">Country / State <span class="req">*</span></label>
+        <input type="text" id="country" name="country" placeholder="e.g. United States, Canada..." required>
       </div>
     </div>
 
-    <!-- ══ STEP 4 · FINAL STEPS ════════════════ -->
-    <div class="step" id="step-4">
-      <div class="step-header">
-        <div class="step-num">Step 4 of 4 · Final Steps</div>
-        <div class="step-title">Almost there.<br>One last thing.</div>
-        <div class="step-desc">Take a moment to share anything else and confirm your commitment to yourself.</div>
-      </div>
+    <div class="q-group">
+      <label for="age">Age Range <span class="req">*</span></label>
+      <select id="age" name="age" required>
+        <option value="">Select your age range</option>
+        <option>22 to 27</option>
+        <option>28 to 33</option>
+        <option>34 to 39</option>
+        <option>40 to 45</option>
+        <option>46 to 52</option>
+        <option>53 and above</option>
+      </select>
+    </div>
 
-      <div class="field" id="f-vision">
-        <label>What does your life look like on the other side of this retreat? <span class="req">*</span></label>
-        <textarea id="vision" placeholder="Describe the woman you want to be after B.E.C.O.M.I.N.G. H.E.R. What has changed? How do you feel? What decisions are you making differently?"></textarea>
-        <div class="error-msg">Please share your vision for after the retreat.</div>
-      </div>
+    <div class="q-group">
+      <label for="occupation">Profession / Industry <span class="req">*</span></label>
+      <p class="q-hint">What do you do professionally? Feel free to share your title or describe your work.</p>
+      <input type="text" id="occupation" name="occupation" placeholder="e.g. Attorney, Entrepreneur, Nurse Practitioner..." required>
+    </div>
 
-      <div class="field" id="f-anything">
-        <label>Is there anything else you want me to know before we connect?</label>
-        <textarea id="anything" placeholder="Anything personal, logistical, or anything you want to make sure I know walking into our conversation..."></textarea>
-      </div>
+    <div class="q-group">
+      <label for="instagram">Instagram Handle</label>
+      <p class="q-hint">Optional, but helps Coach Kay connect with you and understand your world.</p>
+      <input type="text" id="instagram" name="instagram" placeholder="@yourhandle">
+    </div>
 
-      <div class="field" id="f-faith">
-        <label>Faith plays a role in your life</label>
-        <div class="card-options">
-          <div class="card-option">
-            <input type="radio" id="faith1" name="faith" value="central">
-            <label for="faith1"><div class="card-dot"></div><div><div class="card-label-title">Yes, it is central to who I am</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="faith2" name="faith" value="some">
-            <label for="faith2"><div class="card-dot"></div><div><div class="card-label-title">Yes, it plays some role in my life</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="faith3" name="faith" value="neutral">
-            <label for="faith3"><div class="card-dot"></div><div><div class="card-label-title">I am neutral or spiritual but not religious</div></div></label>
-          </div>
-          <div class="card-option">
-            <input type="radio" id="faith4" name="faith" value="no">
-            <label for="faith4"><div class="card-dot"></div><div><div class="card-label-title">Not particularly</div></div></label>
-          </div>
-        </div>
-      </div>
-
-      <hr class="form-divider">
-
-      <div class="field">
-        <label>Commitment Statement</label>
-        <div class="card-option">
-          <input type="checkbox" id="commit" />
-          <label for="commit">
-            <div class="card-check"></div>
-            <div><div class="card-label-title">I am ready to invest in myself.</div>
-            <div class="card-label-desc">I understand that this is a premium retreat experience and that submitting this application is the first step toward securing my spot. I commit to showing up fully for myself.</div></div>
-          </label>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="card-option">
-          <input type="checkbox" id="privacy" />
-          <label for="privacy">
-            <div class="card-check"></div>
-            <div><div class="card-label-title">I agree to the privacy and communication policy.</div>
-            <div class="card-label-desc">My information will be used only to process this application and follow up about the retreat. It will never be shared or sold.</div></div>
-          </label>
-        </div>
-      </div>
-
-      <div class="form-nav">
-        <button class="btn-back" onclick="prevStep(4)">← Back</button>
-        <button class="btn-submit" onclick="submitForm()">Submit My Application ✦</button>
+    <div class="q-group">
+      <label>How Did You Hear About B.E.C.O.M.I.N.G. H.E.R.? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Instagram" required><span>Instagram / Social Media</span></label>
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Podcast"><span>Love Beyond the Surface Podcast</span></label>
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Affluent"><span>Affluent &amp; Aligned Community</span></label>
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Friend"><span>A Friend or Personal Referral</span></label>
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Email"><span>Email List</span></label>
+        <label class="radio-item"><input type="radio" name="hearAbout" value="Other"><span>Other</span></label>
       </div>
     </div>
 
-  </div><!-- end form-wrap -->
-</div><!-- end application-form -->
+    <div class="q-group">
+      <label for="referral">If You Were Referred, Who Sent You?</label>
+      <input type="text" id="referral" name="referral" placeholder="Name or handle of the person who referred you">
+    </div>
 
-<!-- ══ CONFIRMATION SCREEN ══════════════════════ -->
-<div id="confirm">
-  <div class="confirm-hero">
-    <div class="confirm-icon">✦</div>
-    <div class="confirm-title">You did it, <span class="name-display" id="confirm-name">beautiful</span>.</div>
-    <div class="confirm-sub">Your application has been received. This is the first step toward becoming the woman you have always known you could be.</div>
+    <div class="q-group">
+      <label>Photo and Content Consent <span class="req">*</span></label>
+      <p class="q-hint">During the retreat, Coach Kay and the team may take photos or short video clips for brand and community use. Please select your preference.</p>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="photoConsent" value="Yes full" required><span>Yes, I am comfortable with photos and video being used on social media and brand materials</span></label>
+        <label class="radio-item"><input type="radio" name="photoConsent" value="Yes limited"><span>Yes, but I prefer no close-up individual photos. Group photos are fine.</span></label>
+        <label class="radio-item"><input type="radio" name="photoConsent" value="No"><span>No, I do not consent to photos or video of me being shared publicly</span></label>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <div></div>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
   </div>
 
-  <div class="confirm-body">
 
-    <div class="step-num" style="margin-bottom:14px;">What Happens Next</div>
-    <div class="confirm-steps">
-      <div class="confirm-step">
-        <div class="cs-num">1</div>
-        <div class="cs-body">
-          <div class="cs-title">Book your discovery call with Coach Kay</div>
-          <div class="cs-desc">Use the button below to schedule a 20-minute call. This is where we confirm your fit, answer every question you have, and walk through your tier selection together.</div>
-        </div>
-      </div>
-      <div class="confirm-step">
-        <div class="cs-num">2</div>
-        <div class="cs-body">
-          <div class="cs-title">Secure your spot with a 50% deposit</div>
-          <div class="cs-desc">Once we connect on the call and confirm your spot, a 50% deposit holds your place. The remaining balance is due 60 days before the retreat sails.</div>
-        </div>
-      </div>
-      <div class="confirm-step">
-        <div class="cs-num">3</div>
-        <div class="cs-body">
-          <div class="cs-title">Receive your pre-retreat materials</div>
-          <div class="cs-desc">Once your deposit is received, you get immediate access to the pre-retreat workbook, the HER Circle pre-retreat community, and your personalized onboarding packet.</div>
-        </div>
+  <!-- ══════════════════════════════════ -->
+  <!-- SECTION 2: LIFE SEASON & IDENTITY -->
+  <!-- ══════════════════════════════════ -->
+  <div class="section" id="section-2" data-title="Life Season & Identity">
+    <div class="section-header">
+      <span class="section-number">Section 02 of 08</span>
+      <h2>Life Season &amp; Identity</h2>
+      <div class="section-divider"></div>
+      <p>Before Coach Kay can serve you, she needs to understand the chapter of life you are currently in. This section gives her a window into your world as it is right now.</p>
+    </div>
+
+    <div class="accent-block">
+      "The woman who knows herself cannot be shaken by anyone who doesn't."<br>
+      <span style="font-size:13px; color: var(--soft);">— These questions are not about judgment. They are about understanding.</span>
+    </div>
+
+    <div class="q-group">
+      <label for="currentSeason">How Would You Describe the Season of Life You Are In Right Now? <span class="req">*</span></label>
+      <p class="q-hint">Not the highlight reel. The honest version. What is actually going on in your life as you complete this application?</p>
+      <textarea class="tall" id="currentSeason" name="currentSeason" placeholder="Share as much as feels right. There is no wrong answer." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>Current Relationship Status <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Single" required><span>Single and intentionally focusing on myself</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Dating"><span>Dating but not in a committed relationship</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Committed"><span>In a committed relationship</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Engaged"><span>Engaged</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Married"><span>Married</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Separated"><span>Separated or going through a divorce</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Widowed"><span>Widowed</span></label>
+        <label class="radio-item"><input type="radio" name="relationshipStatus" value="Other"><span>Other / Prefer not to say</span></label>
       </div>
     </div>
 
-    <div class="tier-summary" id="tier-summary-block">
-      <div class="ts-head">
-        <div class="ts-head-label">Your Selected Tier</div>
-        <div class="ts-head-name" id="confirm-tier">Foundation Experience</div>
+    <div class="q-group">
+      <label for="roleIdentity">Outside of Your Relationship Status and Career, How Do You Identify Yourself? <span class="req">*</span></label>
+      <p class="q-hint">Who are you? Mother, caregiver, creative, leader, survivor, seeker? How would you describe the woman you are at your core?</p>
+      <textarea id="roleIdentity" name="roleIdentity" placeholder="Share the roles, values, and qualities that feel most central to who you are..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="biggestShift">What Is the Biggest Shift or Transition You Have Experienced in the Last Two Years? <span class="req">*</span></label>
+      <p class="q-hint">This could be a career move, a relationship ending, a loss, a healing journey, a reinvention, or anything that has significantly changed your life.</p>
+      <textarea id="biggestShift" name="biggestShift" placeholder="You do not need to share every detail. Share what feels relevant to why you are applying." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="proudOf">What Are You Most Proud of About Yourself Right Now?</label>
+      <p class="q-hint">This question matters. It tells Coach Kay what strengths to build on during the retreat.</p>
+      <textarea id="proudOf" name="proudOf" placeholder="Do not minimize yourself here. Share what you genuinely respect about who you have become."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>Do You Have Children or Dependents? <span class="req">*</span></label>
+      <p class="q-hint">This helps Coach Kay understand your life context and available bandwidth for this kind of deep work.</p>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="children" value="No" required><span>No children or dependents</span></label>
+        <label class="radio-item"><input type="radio" name="children" value="Yes young"><span>Yes, children under 12 at home</span></label>
+        <label class="radio-item"><input type="radio" name="children" value="Yes teens"><span>Yes, teenagers at home</span></label>
+        <label class="radio-item"><input type="radio" name="children" value="Yes adult"><span>Yes, adult children or other dependents</span></label>
       </div>
-      <div class="ts-body">
-        <div class="ts-price-row">
-          <div class="ts-price-label">Full retreat investment</div>
-          <div class="ts-price-full" id="confirm-price">$5,500</div>
-        </div>
-        <div class="ts-deposit-row">
-          <div class="ts-deposit-label">Deposit to secure your spot (50%)</div>
-          <div class="ts-deposit-amount" id="confirm-deposit">$2,750</div>
-        </div>
-      </div>
     </div>
 
-    <div class="book-cta">
-      <div class="book-cta-label">Your Next Step</div>
-      <div class="book-cta-title">Book your discovery call<br>with Coach Kay</div>
-      <div class="book-cta-desc">This is a 20-minute conversation to confirm your fit, talk through your tier, and answer every question you have before your deposit is due. Spots on my calendar are limited.</div>
-      <button class="btn-book" onclick="window.open('https://calendly.com/yourfavoritecoachkay','_blank')">Book My Call Now →</button>
+    <div class="q-group">
+      <label for="currentStruggle">What Are You Genuinely Struggling With Right Now? <span class="req">*</span></label>
+      <p class="q-hint">You do not need to have it together to be here. This retreat is designed for women in the middle of the work, not after it is done.</p>
+      <textarea class="tall" id="currentStruggle" name="currentStruggle" placeholder="Be as honest as you feel comfortable being. This goes directly to Coach Kay." required></textarea>
     </div>
 
-    <div class="confirm-note">
-      Did not receive a confirmation email? Check your spam folder or reach out directly at <strong>support@yourfavoritecoachkay.com</strong>. I personally review every application within 24 hours.
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
     </div>
-
   </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 3: RELATIONSHIP HISTORY & PATTERNS   -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="section" id="section-3" data-title="Relationship History & Patterns">
+    <div class="section-header">
+      <span class="section-number">Section 03 of 08</span>
+      <h2>Relationship History &amp; Patterns</h2>
+      <div class="section-divider"></div>
+      <p>This section helps Coach Kay understand the relationship landscape that has shaped you. You do not need to relive your past here. You only need to identify what has been true and what you are ready to change.</p>
+    </div>
+
+    <div class="gold-block">
+      Your answers here are confidential. They are used only by Coach Kay to prepare for your retreat experience. You will never be asked to share anything publicly that you have not chosen to share yourself.
+    </div>
+
+    <div class="q-group">
+      <label for="relationshipOverall">How Would You Describe Your Overall Relationship History? <span class="req">*</span></label>
+      <p class="q-hint">Not a list of names or timelines. A description of the emotional experience. What has love generally looked like for you?</p>
+      <textarea class="tall" id="relationshipOverall" name="relationshipOverall" placeholder="e.g. I have often attracted emotionally unavailable partners. I have had long relationships that ended painfully..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="pattern">What Relationship Pattern Are You Most Ready to Break? <span class="req">*</span></label>
+      <p class="q-hint">If you could name one recurring dynamic that has shown up across more than one relationship or situationship, what would it be?</p>
+      <textarea id="pattern" name="pattern" placeholder="Be specific if you can. The more clearly you name it, the more effectively Coach Kay can address it." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>Which of These Have You Experienced in a Relationship? <span class="req">*</span></label>
+      <p class="q-hint">Select all that apply. This helps Coach Kay prepare trauma-informed facilitation for the group.</p>
+      <div class="check-group" data-required-group="experienced" data-min="1" id="grp-experienced">
+        <label class="check-item"><input type="checkbox" name="experienced" value="emotional_unavailability"><span>Emotional unavailability or inconsistency from a partner</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="infidelity"><span>Infidelity or betrayal of trust</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="verbal_emotional_abuse"><span>Verbal or emotional mistreatment</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="codependency"><span>Codependency or losing yourself in a relationship</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="abandonment"><span>Abandonment or being left without closure</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="loving_too_much"><span>Loving someone far more than they loved you back</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="toxic"><span>A mutually toxic or chaotic relationship dynamic</span></label>
+        <label class="check-item"><input type="checkbox" name="experienced" value="none"><span>None of the above have applied to me</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="attractionPattern">What Kind of Person Have You Most Consistently Been Attracted To?</label>
+      <p class="q-hint">Not physical appearance. Emotional energy. What feeling or dynamic in a person tends to pull you in?</p>
+      <textarea id="attractionPattern" name="attractionPattern" placeholder="e.g. People who seem confident but are emotionally closed off. People who need fixing. People who are exciting but inconsistent..."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="wherePatternFrom">Where Do You Believe This Pattern Comes From?</label>
+      <p class="q-hint">If you have thought about it, what early experiences, relationships, or beliefs do you think shaped how you show up in love?</p>
+      <textarea id="wherePatternFrom" name="wherePatternFrom" placeholder="You do not need a full answer here. Even partial insight is valuable to Coach Kay."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="desiredRelationship">What Kind of Relationship Do You Actually Want? <span class="req">*</span></label>
+      <p class="q-hint">Not what you have settled for. Not what you think is realistic. What do you genuinely want love to look and feel like in your life?</p>
+      <textarea class="tall" id="desiredRelationship" name="desiredRelationship" placeholder="Describe the emotional experience you want, not just qualities in a person." required></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SECTION 4: INNER HEALING, CONFIDENCE & SELF-WORTH -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="section" id="section-4" data-title="Inner Healing & Self-Worth">
+    <div class="section-header">
+      <span class="section-number">Section 04 of 08</span>
+      <h2>Inner Healing, Confidence &amp; Self-Worth</h2>
+      <div class="section-divider"></div>
+      <p>B.E.C.O.M.I.N.G. H.E.R. is an identity-shift experience. These questions help Coach Kay understand where you are in your relationship with yourself, so she can meet you exactly there.</p>
+    </div>
+
+    <div class="q-group">
+      <label>How Would You Rate Your Current Relationship With Yourself? <span class="req">*</span></label>
+      <p class="q-hint">1 = I am very disconnected from myself right now. 10 = I have a strong, loving relationship with who I am.</p>
+      <div class="scale-wrap" id="selfScale">
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="1" required><span>1</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="2"><span>2</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="3"><span>3</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="4"><span>4</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="5"><span>5</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="6"><span>6</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="7"><span>7</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="8"><span>8</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="9"><span>9</span></label>
+        <label class="scale-item"><input type="radio" name="selfRelationship" value="10"><span>10</span></label>
+      </div>
+      <div class="scale-labels">
+        <span>Very disconnected</span>
+        <span>Strong and loving</span>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="selfWorthStory">Describe Your Relationship With Your Own Self-Worth. <span class="req">*</span></label>
+      <p class="q-hint">Not the surface answer. Do you genuinely believe you are deserving of the love, care, and life you say you want?</p>
+      <textarea class="tall" id="selfWorthStory" name="selfWorthStory" placeholder="Be honest. Most women here are working on this. You are not alone." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="innerCriticVoice">What Does Your Inner Critic Most Often Say to You?</label>
+      <p class="q-hint">The voice that shows up when you are about to take a risk, set a boundary, or step into something bigger. What does it say?</p>
+      <textarea id="innerCriticVoice" name="innerCriticVoice" placeholder="e.g. You are too much. No one will stay. You do not deserve this. Who do you think you are?"></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="boundaries">How Would You Describe Your Current Relationship With Boundaries?</label>
+      <p class="q-hint">In relationships, with family, at work, with yourself. Are your boundaries clear? Inconsistent? Hard to maintain? Nonexistent?</p>
+      <textarea id="boundaries" name="boundaries" placeholder="There is no correct answer. Honest self-assessment is what matters here."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>Have You Previously Done Any Personal Development, Therapy, or Coaching Work? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="priorWork" value="Yes extensive" required><span>Yes, extensively. I have done significant inner work.</span></label>
+        <label class="radio-item"><input type="radio" name="priorWork" value="Yes some"><span>Yes, some. I have begun the work but it is ongoing.</span></label>
+        <label class="radio-item"><input type="radio" name="priorWork" value="Minimal"><span>Minimally. I am newer to this kind of work.</span></label>
+        <label class="radio-item"><input type="radio" name="priorWork" value="No"><span>No. This would be my first significant experience.</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="activeTherapy">Are You Currently Working With a Therapist, Counselor, or Coach?</label>
+      <p class="q-hint">If yes, how does your current support system complement what you are seeking from this retreat?</p>
+      <textarea id="activeTherapy" name="activeTherapy" placeholder="Optional. Share what is relevant."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="whatNotWorked">What Have You Already Tried That Has Not Produced the Change You Were Hoping For?</label>
+      <p class="q-hint">Knowing what has not worked is just as important as knowing what has. This prevents Coach Kay from repeating approaches that have not served you.</p>
+      <textarea id="whatNotWorked" name="whatNotWorked" placeholder="e.g. I have tried therapy but I am not sure it went deep enough into my patterns. I have read all the books but nothing sticks in real situations..."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="prevCoachDescribe">If You Have Worked With a Therapist or Coach Before, How Did They Describe You as a Client?</label>
+      <p class="q-hint">What did they say about how you show up, what your strengths are, or what you need to work on? Even a paraphrase is helpful.</p>
+      <textarea id="prevCoachDescribe" name="prevCoachDescribe" placeholder="e.g. My therapist said I intellectualize instead of feeling. My last coach said I was her most self-aware client but that I resist being coached on my love life..."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="healingWork">What Healing Work Have You Already Done That You Are Most Proud Of?</label>
+      <p class="q-hint">This tells Coach Kay your existing strengths and what ground has already been covered.</p>
+      <textarea id="healingWork" name="healingWork" placeholder="Even small steps count. Share what feels significant to you."></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- SECTION 5: RETREAT GOALS & OUTCOMES    -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="section" id="section-5" data-title="Goals & Desired Outcomes">
+    <div class="section-header">
+      <span class="section-number">Section 05 of 08</span>
+      <h2>Retreat Goals &amp; Desired Outcomes</h2>
+      <div class="section-divider"></div>
+      <p>What do you want to walk away with? These questions help Coach Kay ensure the retreat is built around real outcomes, not just an experience. Your answers directly shape how the week is facilitated.</p>
+    </div>
+
+    <div class="q-group">
+      <label for="primaryGoal">What Is Your Single Most Important Goal for This Retreat? <span class="req">*</span></label>
+      <p class="q-hint">If you could leave this ship having achieved one thing, what would it be?</p>
+      <textarea id="primaryGoal" name="primaryGoal" placeholder="Be specific. Not just 'grow' or 'heal.' What would actually feel different? What concrete shift would you notice?" required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>What Do You Most Want to Walk Away With? Select All That Apply. <span class="req">*</span></label>
+      <div class="check-group" data-required-group="desiredOutcomes" data-min="1" id="grp-desiredOutcomes">
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="clarity_self"><span>Clarity on who I am and what I actually want</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="pattern_break"><span>A real understanding of my relationship patterns and how to break them</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="self_worth"><span>A stronger, more grounded sense of my own worth</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="release_past"><span>Release from a past relationship, wound, or experience that is still holding me back</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="standards"><span>Clear, written, non-negotiable standards for love and relationships</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="boundaries"><span>Practical tools for holding boundaries without guilt</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="community"><span>A community of women who are doing the same level of work</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="readiness"><span>Genuine readiness to attract and receive healthy love</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="identity"><span>A clear, owned identity as the woman I am becoming</span></label>
+        <label class="check-item"><input type="checkbox" name="desiredOutcomes" value="coaching"><span>Personalized guidance from Coach Kay on my specific situation</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="yearFromNow">What Does Your Life Look Like One Year From Now if This Retreat Changes Everything? <span class="req">*</span></label>
+      <p class="q-hint">Write this in the present tense as if it has already happened. What do you see? How do you feel? What is different?</p>
+      <textarea class="grande" id="yearFromNow" name="yearFromNow" placeholder="One year from today, I am..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="stuckPoint">What Is the One Thing That Has Kept You Stuck, That You Are Finally Ready to Address?</label>
+      <p class="q-hint">The thing you know is there. The thing you have circled around but not fully faced. If it came to mind just now, that is probably it.</p>
+      <textarea class="tall" id="stuckPoint" name="stuckPoint" placeholder="You do not have to have the answer. You only need to be willing to look at it."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="lifestability">How Would You Describe Your Life Stability Right Now? <span class="req">*</span></label>
+      <p class="q-hint">Deep transformation work is most effective when the basics of life are relatively stable. Coach Kay wants to make sure you are in a position to actually receive this work.</p>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="lifeStability" value="Very stable" required><span>Very stable. I have the time, space, and financial footing to be fully present.</span></label>
+        <label class="radio-item"><input type="radio" name="lifeStability" value="Mostly stable"><span>Mostly stable. There are some moving parts but nothing that would prevent me from being present.</span></label>
+        <label class="radio-item"><input type="radio" name="lifeStability" value="In flux"><span>In flux. I am navigating significant change but I still feel this is the right time.</span></label>
+        <label class="radio-item"><input type="radio" name="lifeStability" value="Unstable"><span>Unstable. I want to be honest that my life is in a lot of transition right now.</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label>How Committed Are You to Doing the Work at This Retreat, Including the Parts That Feel Uncomfortable? <span class="req">*</span></label>
+      <p class="q-hint">1 = I am still deciding how deep I want to go. 10 = I am fully committed to the full experience, no matter what comes up.</p>
+      <div class="scale-wrap">
+        <label class="scale-item"><input type="radio" name="commitment" value="1" required><span>1</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="2"><span>2</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="3"><span>3</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="4"><span>4</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="5"><span>5</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="6"><span>6</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="7"><span>7</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="8"><span>8</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="9"><span>9</span></label>
+        <label class="scale-item"><input type="radio" name="commitment" value="10"><span>10</span></label>
+      </div>
+      <div class="scale-labels">
+        <span>Still deciding</span>
+        <span>Fully committed</span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 6: GROUP DYNAMICS & COACHING FIT  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section" id="section-6" data-title="Coaching Readiness & Fit">
+    <div class="section-header">
+      <span class="section-number">Section 06 of 08</span>
+      <h2>Group Dynamics &amp; Coaching Readiness</h2>
+      <div class="section-divider"></div>
+      <p>This retreat is a curated, intimate group experience. These questions help Coach Kay ensure the group is well-matched and that she can support everyone well. There are no right or wrong answers here, only honest ones.</p>
+    </div>
+
+    <div class="q-group">
+      <label for="groupExperience">How Do You Show Up in Group Settings? <span class="req">*</span></label>
+      <p class="q-hint">Are you someone who tends to lead conversations? Stay quiet until you feel safe? Observe before opening up? Share openly and quickly?</p>
+      <textarea id="groupExperience" name="groupExperience" placeholder="Describe how you typically show up in rooms where emotional depth or vulnerability is expected." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>What Would Make You Feel Safe Enough to Be Fully Honest in a Group Setting? <span class="req">*</span></label>
+      <div class="check-group" data-required-group="safetyCriteria" data-min="1" id="grp-safetyCriteria">
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="confidentiality"><span>A clear confidentiality agreement from all participants</span></label>
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="no_pressure"><span>Never being pressured to share what I am not ready to share</span></label>
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="non_judgment"><span>A non-judgmental environment where different experiences are respected</span></label>
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="facilitation"><span>Strong, skilled facilitation that keeps the group on track</span></label>
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="coach_access"><span>Knowing I can speak privately with Coach Kay if needed</span></label>
+        <label class="check-item"><input type="checkbox" name="safetyCriteria" value="similar_women"><span>Being in a room with women at a similar level of self-awareness</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="feedbackStyle">How Do You Prefer to Receive Coaching and Direct Feedback? <span class="req">*</span></label>
+      <p class="q-hint">Coach Kay needs to know how to approach you. Do you want gentleness, directness, or somewhere in between?</p>
+      <textarea id="feedbackStyle" name="feedbackStyle" placeholder="e.g. I can handle direct feedback as long as it comes with care. I shut down when I feel criticized. I need to be asked before I am challenged..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="groupContribution">What Do You Think You Will Bring to This Group of Women?</label>
+      <p class="q-hint">Every woman in the room is both a student and a teacher. What energy, perspective, or experience do you bring?</p>
+      <textarea id="groupContribution" name="groupContribution" placeholder="This is not about credentials. It is about presence and contribution."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="concern">Is There Anything You Are Nervous or Uncertain About Regarding This Retreat?</label>
+      <p class="q-hint">Name it. Coach Kay would rather know your hesitation before the retreat than during it.</p>
+      <textarea id="concern" name="concern" placeholder="e.g. I am worried about being grouped with women who are at a very different life stage. I do not know if I am ready to go this deep..."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>Have You Ever Attended a Retreat, Mastermind, or Group Coaching Experience Before? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="priorRetreat" value="Yes multiple" required><span>Yes, multiple times</span></label>
+        <label class="radio-item"><input type="radio" name="priorRetreat" value="Yes once"><span>Yes, once</span></label>
+        <label class="radio-item"><input type="radio" name="priorRetreat" value="No first"><span>No, this would be my first experience like this</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="priorRetreatDetail">If Yes, What Did That Experience Teach You About How You Show Up in Transformational Spaces?</label>
+      <textarea id="priorRetreatDetail" name="priorRetreatDetail" placeholder="What worked well? What did not? What do you want to be different this time?"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 7: HEALTH, LOGISTICS & TRAVEL         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="section" id="section-7" data-title="Health, Logistics & Travel">
+    <div class="section-header">
+      <span class="section-number">Section 07 of 08</span>
+      <h2>Health, Accessibility &amp; Travel Logistics</h2>
+      <div class="section-divider"></div>
+      <p>These questions exist purely to serve you well. Your comfort, safety, and accessibility matter. If anything here requires a more personal conversation, Coach Kay and the team are available to speak with you directly.</p>
+    </div>
+
+    <div class="q-group">
+      <label>Which Experience Tier Are You Applying For? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="tier" value="Foundation" required><span><strong>Foundation Experience — $5,500</strong> · Interior cabin, all workshops, small group circles, 90-day plan, 3-month HER Circle membership</span></label>
+        <label class="radio-item"><input type="radio" name="tier" value="VIP"><span><strong>VIP Experience — $7,500</strong> · Foundation + balcony cabin, 1 private coaching session, VIP dinner, Standards Document review, 6-month HER Circle</span></label>
+        <label class="radio-item"><input type="radio" name="tier" value="Concierge"><span><strong>Concierge Experience — $9,500</strong> · VIP + premium suite, 3 private coaching sessions, custom 90-day plan, 12-month HER Circle, concierge pre-travel support</span></label>
+        <label class="radio-item"><input type="radio" name="tier" value="Unsure"><span>I am not yet sure which tier is right for me and would like to speak with someone first</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label>Are You Prepared to Invest in Full or Would You Need a Payment Plan? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="paymentPlan" value="Full payment" required><span>I am prepared to pay in full</span></label>
+        <label class="radio-item"><input type="radio" name="paymentPlan" value="Payment plan"><span>I would need a payment plan</span></label>
+        <label class="radio-item"><input type="radio" name="paymentPlan" value="Need information"><span>I need more information before committing</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label>Do You Have a Valid Passport? <span class="req">*</span></label>
+      <p class="q-hint">This cruise departs from a US port and visits international destinations. A valid passport is required.</p>
+      <div class="radio-group inline">
+        <label class="radio-item"><input type="radio" name="passport" value="Yes valid" required><span>Yes, valid for more than 6 months</span></label>
+        <label class="radio-item"><input type="radio" name="passport" value="Yes needs renewal"><span>Yes, but it expires within 6 months</span></label>
+        <label class="radio-item"><input type="radio" name="passport" value="No"><span>No, I need to apply</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="travelCity">What City Will You Be Flying or Traveling From?</label>
+      <input type="text" id="travelCity" name="travelCity" placeholder="e.g. Atlanta, GA · Toronto, Canada · Houston, TX">
+    </div>
+
+    <div class="q-group">
+      <label>Will You Be Traveling Alone or With Someone You Know? <span class="req">*</span></label>
+      <div class="radio-group inline">
+        <label class="radio-item"><input type="radio" name="travelParty" value="Alone" required><span>Traveling alone</span></label>
+        <label class="radio-item"><input type="radio" name="travelParty" value="With someone"><span>Traveling with a friend or family member</span></label>
+      </div>
+    </div>
+
+
+    <div class="q-group">
+      <label>Is This Your First Time on a Cruise Ship? <span class="req">*</span></label>
+      <p class="q-hint">This helps the team tailor the onboarding and orientation experience for first-time cruisers.</p>
+      <div class="radio-group" data-required-group="firstCruise" data-min="1" id="grp-firstCruise">
+        <label class="radio-item"><input type="radio" name="firstCruise" value="Yes first" required><span>Yes, this will be my first time on a cruise ship</span></label>
+        <label class="radio-item"><input type="radio" name="firstCruise" value="No some"><span>No, I have cruised before but not many times</span></label>
+        <label class="radio-item"><input type="radio" name="firstCruise" value="No experienced"><span>No, I am an experienced cruiser and feel very comfortable on ships</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="roommateRequest">Roommate Request or Preference</label>
+      <p class="q-hint">Foundation tier guests may share cabin arrangements. If you are traveling with someone or have a specific preference, note it here.</p>
+      <input type="text" id="roommateRequest" name="roommateRequest" placeholder="Name of preferred roommate, or 'No preference'">
+    </div>
+
+    <div class="subsection">
+      <h3>Health &amp; Accessibility</h3>
+      <div class="sub-note">This information is used strictly to plan for your wellbeing. It is never shared publicly.</div>
+    </div>
+
+    <div class="q-group">
+      <label for="dietaryNeeds">Dietary Restrictions or Food Allergies</label>
+      <p class="q-hint">We will do our best to coordinate with the ship's culinary team on your behalf.</p>
+      <input type="text" id="dietaryNeeds" name="dietaryNeeds" placeholder="e.g. Gluten-free, vegan, nut allergy, halal, kosher...">
+    </div>
+
+    <div class="q-group">
+      <label for="accessibilityNeeds">Accessibility Needs or Physical Considerations</label>
+      <p class="q-hint">Do you have any mobility, sensory, or physical needs we should be aware of when planning sessions and venues?</p>
+      <textarea id="accessibilityNeeds" name="accessibilityNeeds" placeholder="Share anything relevant so we can prepare the right environment for you."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="motionSickness">Do You Experience Motion Sickness or Have Concerns About Being on a Ship?</label>
+      <div class="radio-group inline">
+        <label class="radio-item"><input type="radio" name="motionSickness" value="No"><span>No concerns</span></label>
+        <label class="radio-item"><input type="radio" name="motionSickness" value="Mild"><span>Mild sensitivity, I manage it well</span></label>
+        <label class="radio-item"><input type="radio" name="motionSickness" value="Yes concern"><span>Yes, this is a real concern for me</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="mentalHealthConsideration">Is There Anything About Your Current Mental or Emotional State That the Retreat Team Should Know to Support You Well?</label>
+      <p class="q-hint">This is completely optional and confidential. If you are currently in an acute mental health situation, we want to ensure this retreat experience is appropriate and supportive for you.</p>
+      <textarea id="mentalHealthConsideration" name="mentalHealthConsideration" placeholder="Share only what you feel comfortable sharing. This is for care planning, not disqualification."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="emergencyContact">Emergency Contact Name &amp; Phone Number <span class="req">*</span></label>
+      <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Full name, relationship to you, and phone number" required>
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-next" onclick="navigate(1)">Continue →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 8: FINAL REFLECTION & COMMIT  -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section" id="section-8" data-title="Final Reflection & Commitment">
+    <div class="section-header">
+      <span class="section-number">Section 08 of 08</span>
+      <h2>Final Reflection &amp; Commitment</h2>
+      <div class="section-divider"></div>
+      <p>You are almost finished. These final questions are the ones Coach Kay reads most carefully. They give her a complete picture of who you are and what you are stepping toward. Take your time here.</p>
+    </div>
+
+    <div class="accent-block">
+      This is not just a retreat. It is a declaration. The act of completing this application is itself a statement about who you are becoming. Coach Kay reads every word.
+    </div>
+
+    <div class="q-group">
+      <label for="needFromCoach">What Do You Specifically Need From Coach Kay During This Retreat? <span class="req">*</span></label>
+      <p class="q-hint">Not what you think sounds right. What do you actually need? Accountability? Gentleness? Permission to be honest? Someone to finally call you higher? Tell her directly.</p>
+      <textarea class="tall" id="needFromCoach" name="needFromCoach" placeholder="e.g. I need someone who will not let me minimize myself. I need someone who will push me past my defenses. I need warmth before I can open up..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="whyNow">Why Now? What Made You Apply for This Retreat at This Particular Moment in Your Life? <span class="req">*</span></label>
+      <p class="q-hint">Not the polished version. The real answer. What happened, or what reached a point of enough, that brought you to this form?</p>
+      <textarea class="grande" id="whyNow" name="whyNow" placeholder="This is the most important question on this application. Be honest. Be real. Be you." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="coachKayNote">Is There Anything You Want Coach Kay to Know About You Before She Reviews Your Application?</label>
+      <p class="q-hint">Anything you want to make sure she sees, understands, or holds space for. Consider this your personal note directly to her.</p>
+      <textarea class="grande" id="coachKayNote" name="coachKayNote" placeholder="Write to her directly. She is reading this."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="becomingStatement">Complete This Sentence: The Woman I Am Becoming... <span class="req">*</span></label>
+      <p class="q-hint">Do not overthink it. What comes up first is usually the truest.</p>
+      <textarea id="becomingStatement" name="becomingStatement" placeholder="The woman I am becoming..." required></textarea>
+    </div>
+
+    <div class="q-group">
+      <label for="resistanceCheck">What Part of You Wants to Close This Form and Not Submit It?</label>
+      <p class="q-hint">Name the resistance. The part of you that says you are not ready, not worth the investment, or not sure. What is it saying?</p>
+      <textarea id="resistanceCheck" name="resistanceCheck" placeholder="Naming your resistance is itself part of the work. Coach Kay will honor it."></textarea>
+    </div>
+
+    <div class="q-group">
+      <label>How Did Completing This Application Make You Feel?</label>
+      <div class="check-group inline">
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="seen"><span>Seen</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="emotional"><span>Emotional</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="excited"><span>Excited</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="nervous"><span>Nervous</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="ready"><span>Ready</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="challenged"><span>Challenged</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="relieved"><span>Relieved</span></label>
+        <label class="check-item"><input type="checkbox" name="applicationFeel" value="other"><span>Other</span></label>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <label for="questions">Questions or Anything You Want to Know Before We Connect?</label>
+      <textarea id="questions" name="questions" placeholder="Ask anything. Coach Kay or her team will respond during your follow-up call."></textarea>
+    </div>
+
+    <div class="subsection">
+      <h3>Agreements &amp; Commitment</h3>
+    </div>
+
+    <div class="q-group">
+      <div class="check-group">
+        <label class="check-item">
+          <input type="checkbox" id="agreeConfidential" name="agreeConfidential" required>
+          <span>I understand that everything shared in this application and during the retreat is held in strict confidence by Coach Kay and the B.E.C.O.M.I.N.G. H.E.R. team. <span class="req">*</span></span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="agreeCommitment" name="agreeCommitment" required>
+          <span>I commit to showing up fully, participating honestly, and engaging with the retreat experience with an open mind and a willing heart. <span class="req">*</span></span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="agreeReview" name="agreeReview" required>
+          <span>I understand that submitting this application does not guarantee a spot. Coach Kay personally reviews each application and will be in touch within 5 to 7 business days. <span class="req">*</span></span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="agreeContact" name="agreeContact" required>
+          <span>I consent to being contacted by Coach Kay or her team by email and phone to discuss my application and next steps. <span class="req">*</span></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="gold-block">
+      <strong>What Happens Next:</strong><br>
+      After you submit, Coach Kay personally reviews your application within 5 to 7 business days. If you are a strong fit, you will receive an invitation to a private discovery call with Coach Kay to discuss your goals, your tier, and confirm your spot. Your investment deposit is only collected after your spot is confirmed.
+    </div>
+
+    <div class="nav-row">
+      <button type="button" class="btn btn-back" onclick="navigate(-1)">← Back</button>
+      <button type="button" class="btn btn-submit" onclick="submitForm()">Submit My Application ✦</button>
+    </div>
+  </div>
+
+</form>
+
+<!-- CONFIRMATION -->
+<div id="confirmation">
+  <div class="confirm-seal">✦</div>
+  <h2>Application <em>Received</em></h2>
+  <p class="confirm-sub">You just did something brave.</p>
+  <p>Your application has been submitted and Coach Kay will review it personally within 5 to 7 business days.</p>
+  <p>If you are a strong fit, you will receive an invitation to a private discovery call to discuss your goals and confirm your spot.</p>
+  <p style="margin-top: 24px; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--soft);">
+    "The woman you are becoming has been waiting for this moment.<br>Welcome to the beginning."
+  </p>
+  <p style="margin-top: 28px; font-size: 12.5px; color: var(--soft); letter-spacing: 0.08em; text-transform: uppercase;">
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7b4b2b7b7a8b5b387bea8b2b5a1a6b1a8b5aeb3a2a4a8a6a4afaca6bee9a4a8aa">[email&#160;protected]</a>
+  </p>
 </div>
 
-<!-- GUIDE SECTION REMOVED -->
-<footer>
-  <div class="fb">Your Favorite Coach Kay · HER Circle</div>
-  <div class="fs">B.E.C.O.M.I.N.G. H.E.R. Retreat Application</div>
-  <div class="ft">Applications reviewed within 24 hours · support@yourfavoritecoachkay.com</div>
-</footer>
+</div><!-- /form-wrap -->
 
 <script>
-  const tierData = {
-    Foundation: { price: '$5,500', deposit: '$2,750' },
-    VIP:        { price: '$7,500', deposit: '$3,750' },
-    Concierge:  { price: '$9,500', deposit: '$4,750' }
-  };
+  const sections = document.querySelectorAll('.section');
+  const totalSections = sections.length;
+  let currentSection = 0;
 
-  function updateProgress(current) {
-    for (let i = 1; i <= 4; i++) {
-      const el = document.getElementById('prog-' + i);
-      el.classList.remove('active', 'done');
-      if (i === current) el.classList.add('active');
-      else if (i < current) el.classList.add('done');
-    }
+  // ── Build progress bar steps
+  const stepsWrap = document.getElementById('progressSteps');
+  document.getElementById('progressTotal').textContent = totalSections;
+  for (let i = 0; i < totalSections; i++) {
+    const s = document.createElement('div');
+    s.className = 'step' + (i === 0 ? ' active' : '');
+    stepsWrap.appendChild(s);
   }
 
-  function validateStep(stepNum) {
-    let valid = true;
-    const required = {
-      1: ['firstname','lastname','email','phone','city','age','profession','relationship'],
-      2: ['whynow','pattern','gap'],
-      3: [],
-      4: ['vision']
-    };
-    document.querySelectorAll('.field.has-error').forEach(f => f.classList.remove('has-error'));
-    const fields = required[stepNum] || [];
-    fields.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const val = el.value.trim();
-      if (!val) { el.closest('.field').classList.add('has-error'); valid = false; }
-      if (id === 'email' && val && !val.includes('@')) { el.closest('.field').classList.add('has-error'); valid = false; }
-    });
-    if (stepNum === 3) {
-      if (!document.querySelector('input[name="tier"]:checked')) { document.getElementById('f-tier').classList.add('has-error'); valid = false; }
-      if (!document.querySelector('input[name="investment"]:checked')) { document.getElementById('f-investment').classList.add('has-error'); valid = false; }
+  function updateProgress() {
+    document.querySelectorAll('.progress-steps .step').forEach((s, i) =>
+      s.classList.toggle('active', i <= currentSection));
+    document.getElementById('progressCurrent').textContent = currentSection + 1;
+    document.getElementById('progressName').textContent =
+      sections[currentSection].dataset.title || '';
+  }
+
+  // ── Clear all error states in a section
+  function clearAttention(sec) {
+    sec.querySelectorAll('.needs-attention').forEach(el =>
+      el.classList.remove('needs-attention'));
+    sec.querySelectorAll('.invalid').forEach(el =>
+      el.classList.remove('invalid'));
+  }
+
+  // ── Create or retrieve the section's error banner
+  function getOrCreateBanner(sec) {
+    let banner = sec.querySelector('.error-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.className = 'error-banner';
+      const hdr = sec.querySelector('.section-header');
+      if (hdr) hdr.insertAdjacentElement('afterend', banner);
+      else sec.prepend(banner);
     }
+    return banner;
+  }
+
+  // ── Validate all required fields in a section
+  function validateSection(sec) {
+    let valid = true;
+    const seenRadioNames = new Set();
+
+    // Standard required inputs (text, textarea, select, radio)
+    sec.querySelectorAll('[required]').forEach(el => {
+      if (el.type === 'radio') {
+        if (seenRadioNames.has(el.name)) return;
+        seenRadioNames.add(el.name);
+        const group = Array.from(sec.querySelectorAll('input[name="' + el.name + '"]'));
+        const checked = group.some(r => r.checked);
+        if (!checked) {
+          valid = false;
+          const container = group[0].closest('.radio-group, .scale-wrap');
+          if (container) container.classList.add('needs-attention');
+        }
+      } else if (el.type === 'checkbox') {
+        // Individual required checkboxes (agreements)
+        if (!el.checked) {
+          valid = false;
+          const item = el.closest('.check-item');
+          if (item) item.classList.add('needs-attention');
+        }
+      } else {
+        if (!el.value.trim()) {
+          valid = false;
+          el.classList.add('invalid');
+        } else {
+          el.classList.remove('invalid');
+        }
+      }
+    });
+
+    // Multi-select checkbox groups: at least one must be checked
+    sec.querySelectorAll('[data-required-group]').forEach(group => {
+      const name = group.dataset.requiredGroup;
+      const min = parseInt(group.dataset.min || '1', 10);
+      const checked = group.querySelectorAll('input[name="' + name + '"]:checked').length;
+      if (checked < min) {
+        valid = false;
+        group.classList.add('needs-attention');
+      }
+    });
+
     return valid;
   }
 
-  function nextStep(current) {
-    if (!validateStep(current)) {
-      const firstError = document.querySelector('.field.has-error');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
+  // ── Navigate between sections
+  function navigate(dir) {
+    const sec = sections[currentSection];
+
+    if (dir === 1) {
+      clearAttention(sec);
+      const isValid = validateSection(sec);
+      const banner = getOrCreateBanner(sec);
+
+      if (!isValid) {
+        banner.textContent = 'Please complete all required fields before continuing.';
+        banner.classList.add('visible');
+        const first = sec.querySelector('.needs-attention, .invalid');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      banner.classList.remove('visible');
     }
-    document.getElementById('step-' + current).classList.remove('active');
-    document.getElementById('step-' + (current + 1)).classList.add('active');
-    updateProgress(current + 1);
+
+    const next = currentSection + dir;
+    if (next < 0 || next >= totalSections) return;
+
+    sec.classList.remove('active');
+    currentSection = next;
+    sections[currentSection].classList.add('active');
+    updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function prevStep(current) {
-    document.getElementById('step-' + current).classList.remove('active');
-    document.getElementById('step-' + (current - 1)).classList.add('active');
-    updateProgress(current - 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
+  // ── Submit: validate, POST to Formspree, show confirmation
   async function submitForm() {
-    if (!validateStep(4)) {
-      const firstError = document.querySelector('.field.has-error');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const sec = sections[currentSection];
+    clearAttention(sec);
+    const isValid = validateSection(sec);
+    const banner = getOrCreateBanner(sec);
+
+    if (!isValid) {
+      banner.textContent = 'Please complete all required fields and check all agreements before submitting.';
+      banner.classList.add('visible');
+      const first = sec.querySelector('.needs-attention, .invalid');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
+    banner.classList.remove('visible');
 
-    const commitChecked  = document.getElementById('commit').checked;
-    const privacyChecked = document.getElementById('privacy').checked;
-    if (!commitChecked || !privacyChecked) {
-      alert('Please check both the commitment statement and the privacy agreement to submit your application.');
-      return;
-    }
-
-    // Collect all form data
-    const firstName    = document.getElementById('firstname').value.trim();
-    const lastName     = document.getElementById('lastname').value.trim();
-    const email        = document.getElementById('email').value.trim();
-    const phone        = document.getElementById('phone').value.trim();
-    const city         = document.getElementById('city').value.trim();
-    const age          = document.getElementById('age').value;
-    const profession   = document.getElementById('profession').value.trim();
-    const relationship = document.getElementById('relationship').value;
-    const whynow       = document.getElementById('whynow').value.trim();
-    const pattern      = document.getElementById('pattern').value.trim();
-    const gap          = document.getElementById('gap').value.trim();
-    const vision       = document.getElementById('vision').value.trim();
-    const concerns     = document.getElementById('concerns').value.trim();
-    const anything     = document.getElementById('anything').value.trim();
-    const heardabout   = document.getElementById('heardabout').value;
-
-    const triedBoxes = [...document.querySelectorAll('input[name="tried"]:checked')].map(el => el.value).join(', ') || 'None selected';
-    const tierInput  = document.querySelector('input[name="tier"]:checked');
-    const tierVal    = tierInput ? tierInput.value : 'Not selected';
-    const tierInfo   = tierData[tierVal] || tierData['Foundation'];
-    const invInput   = document.querySelector('input[name="investment"]:checked');
-    const invVal     = invInput ? invInput.value : 'Not selected';
-    const travelInput = document.querySelector('input[name="travel"]:checked');
-    const travelVal  = travelInput ? travelInput.value : 'Not answered';
-    const faithInput = document.querySelector('input[name="faith"]:checked');
-    const faithVal   = faithInput ? faithInput.value : 'Not answered';
-    const readinessInput = document.querySelector('input[name="readiness"]:checked');
-    const readinessVal = readinessInput ? readinessInput.value + ' / 5' : 'Not answered';
-
-    // Build submission payload for Formspree
-    const payload = {
-      _subject: `NEW APPLICATION — B.E.C.O.M.I.N.G. H.E.R. · ${firstName} ${lastName} · ${tierVal} ($${tierInfo.price})`,
-      _replyto: email,
-
-      '— APPLICANT DETAILS —': '——————————————————————',
-      'Full Name':         `${firstName} ${lastName}`,
-      'Email':             email,
-      'Phone':             phone,
-      'City & Country':    city,
-      'Age Range':         age,
-      'Profession':        profession,
-      'Relationship Status': relationship,
-
-      '— HER JOURNEY —': '——————————————————————',
-      'Why Now':           whynow,
-      'Repeating Pattern': pattern,
-      'What She Has Tried': triedBoxes,
-      'What Is Still Missing': gap,
-      'Readiness (1-5)':   readinessVal,
-
-      '— RETREAT DETAILS —': '——————————————————————',
-      'Selected Tier':     `${tierVal} Experience — ${tierInfo.price}`,
-      'Deposit Required':  tierInfo.deposit,
-      'Investment Feeling': invVal,
-      'Cruise Experience': travelVal,
-      'Potential Barriers': concerns || 'None mentioned',
-      'How She Heard':     heardabout || 'Not answered',
-
-      '— FINAL STEP —': '——————————————————————',
-      'Vision After Retreat': vision,
-      'Anything Else':     anything || 'Nothing additional',
-      'Faith Role':        faithVal,
-
-      '— ACTION REQUIRED —': '——————————————————————',
-      'NEXT STEP':         `Follow up with ${firstName} at ${email} or ${phone} within 24 hours to book discovery call.`
-    };
-
-    // Show loading state on button
     const submitBtn = document.querySelector('.btn-submit');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    submitBtn.classList.add('loading');
+
+    // Build FormData and ensure multi-select checkboxes are captured correctly
+    const form = document.getElementById('mainForm');
+    const data = new FormData(form);
+    ['experienced', 'desiredOutcomes', 'safetyCriteria', 'applicationFeel'].forEach(name => {
+      const vals = Array.from(
+        form.querySelectorAll('input[name="' + name + '"]:checked')
+      ).map(el => el.value);
+      data.delete(name);
+      vals.forEach(v => data.append(name, v));
+    });
 
     try {
-      // ─────────────────────────────────────────────────────────────────
-      // FORMSPREE ENDPOINT
-      // Replace YOUR_FORM_ID below with your actual Formspree form ID.
-      // Steps:
-      //   1. Go to formspree.io and sign up for a free account
-      //   2. Click "New Form" and name it "B.E.C.O.M.I.N.G. H.E.R. Applications"
-      //   3. Copy your form ID (looks like: xpwzqkab)
-      //   4. Replace YOUR_FORM_ID in the URL below with that ID
-      //   5. Formspree will email every submission to support@yourfavoritecoachkay.com
-      // ─────────────────────────────────────────────────────────────────
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/myknzeyz';
-
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('https://formspree.io/f/myknzeyz', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
+        body: data,
+        headers: { Accept: 'application/json' }
       });
 
-      if (response.ok) {
-        // Success — show confirmation screen
-        document.getElementById('confirm-name').textContent    = firstName || 'beautiful';
-        document.getElementById('confirm-tier').textContent    = tierVal + ' Experience';
-        document.getElementById('confirm-price').textContent   = tierInfo.price;
-        document.getElementById('confirm-deposit').textContent = tierInfo.deposit;
-
-        document.getElementById('application-form').style.display = 'none';
-        document.querySelector('.progress-wrap').style.display     = 'none';
-        const confirm = document.getElementById('confirm');
-        confirm.classList.add('active');
+      if (res.ok) {
+        document.getElementById('mainForm').style.display = 'none';
+        document.getElementById('progressCurrent').textContent = totalSections;
+        document.getElementById('progressName').textContent = 'Application Submitted';
+        document.querySelectorAll('.progress-steps .step').forEach(s =>
+          s.classList.add('active'));
+        document.getElementById('confirmation').style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
-
       } else {
-        // Formspree returned an error
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        alert('Something went wrong sending your application. Please email us directly at support@yourfavoritecoachkay.com and we will g
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json.error || 'Server error');
+      }
+    } catch (err) {
+      submitBtn.textContent = 'Submit My Application ❖';
+      submitBtn.classList.remove('loading');
+      banner.textContent =
+        'There was a problem submitting your application. Please check your connection and try again, or email us at support@yourfavoritecoachkay.com';
+      banner.classList.add('visible');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // ── Live error-state cleanup as user interacts
+  document.addEventListener('input', e => {
+    e.target.classList.remove('invalid');
+    e.target.closest('.needs-attention')?.classList.remove('needs-attention');
+  });
+  document.addEventListener('change', e => {
+    e.target.classList.remove('invalid');
+    // Clean individual check-item
+    e.target.closest('.check-item')?.classList.remove('needs-attention');
+    // Clean containing group (radio-group, scale-wrap, check-group with data-required-group)
+    const grp = e.target.closest(
+      '.radio-group, .scale-wrap, [data-required-group]'
+    );
+    if (grp) grp.classList.remove('needs-attention');
+  });
+</script>
+
+</body>
+</html>
